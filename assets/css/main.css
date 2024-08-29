@@ -361,12 +361,12 @@ h6 {
     position: relative;
   }
 
-  .navmenu>ul>li {
+  .navmenu > ul > li {
     white-space: nowrap;
     padding: 15px 14px;
   }
 
-  .navmenu>ul>li:last-child {
+  .navmenu > ul > li:last-child {
     padding-right: 0;
   }
 
@@ -393,7 +393,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .navmenu>ul>li>a:before {
+  .navmenu > ul > li > a:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -407,13 +407,13 @@ h6 {
   }
 
   .navmenu a:hover:before,
-  .navmenu li:hover>a:before,
+  .navmenu li:hover > a:before,
   .navmenu .active:before {
     visibility: visible;
     width: 100%;
   }
 
-  .navmenu li:hover>a,
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
@@ -435,38 +435,6 @@ h6 {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
 
-  /* Hide dropdown by default */
-.navmenu .dropdown-menu {
-  display: none;
-}
-
-/* Show dropdown when active */
-.navmenu .dropdown.active .dropdown-menu {
-  display: block;
-}
-
-/* Styling for mobile view */
-@media (max-width: 768px) {
-  .navmenu ul {
-      display: none;
-      flex-direction: column;
-  }
-
-  .navmenu.active ul {
-      display: flex;
-  }
-
-  .navmenu .dropdown-menu {
-      display: none;
-      flex-direction: column;
-  }
-
-  .navmenu .dropdown.active .dropdown-menu {
-      display: flex;
-  }
-}
-
-
   .navmenu .dropdown ul li {
     min-width: 200px;
   }
@@ -484,11 +452,11 @@ h6 {
 
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
+  .navmenu .dropdown ul li:hover > a {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .dropdown:hover>ul {
+  .navmenu .dropdown:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -500,7 +468,7 @@ h6 {
     visibility: hidden;
   }
 
-  .navmenu .dropdown .dropdown:hover>ul {
+  .navmenu .dropdown .dropdown:hover > ul {
     opacity: 1;
     top: 0;
     left: -100%;
@@ -539,6 +507,10 @@ h6 {
     z-index: 9998;
   }
 
+  .navmenu.active ul {
+    display: block;
+  }
+
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
@@ -574,62 +546,57 @@ h6 {
     color: var(--contrast-color);
   }
 
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
-  }
-
   .navmenu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
-    padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    transition: all 0.5s ease-in-out;
+    padding: 5px 0;
+    margin: 5px 15px;
+    border: 1px solid var(--dropdown-border-color);
+    border-radius: 6px;
+    transition: 0.3s;
   }
 
-  .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
-  }
-
-  .navmenu .dropdown>.dropdown-active {
-    display: block;
-    background-color: rgba(33, 37, 41, 0.03);
+  .navmenu .dropdown .dropdown ul {
+    margin: 5px 20px;
   }
 
   .mobile-nav-active {
     overflow: hidden;
   }
 
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
-    z-index: 9999;
-  }
-
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navmenu>ul {
+  .navmenu .dropdown > .dropdown-active {
     display: block;
+  }
+
+  .navmenu .dropdown > a:after {
+    content: "\ea99";
+    font-family: "BootstrapIcons";
+    padding-left: 10px;
+    position: relative;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--dropdown-border-color);
+  }
+
+  .navmenu .dropdown > .active > a:after {
+    content: "\e9b6";
+    padding-left: 10px;
+  }
+
+  .navmenu .dropdown .dropdown > a:after {
+    padding-left: 20px;
+  }
+
+  .scroll-top {
+    position: fixed;
+    right: 15px;
+    bottom: -15px;
+    z-index: 99999;
+    transition: 0.5s;
+    visibility: hidden;
+  }
+
+  .scroll-top.active {
+    bottom: 15px;
+    visibility: visible;
   }
 }
 
