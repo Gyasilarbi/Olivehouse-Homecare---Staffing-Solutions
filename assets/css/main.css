@@ -435,37 +435,7 @@ h6 {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
 
-  /* Hide dropdown by default */
-.navmenu .dropdown-menu {
-    display: none;
-}
-
-/* Show dropdown when active */
-.navmenu .dropdown.active .dropdown-menu {
-    display: block;
-}
-
-/* Styling for mobile view */
-@media (max-width: 768px) {
-    .navmenu ul {
-        display: none;
-        flex-direction: column;
-    }
-
-    .navmenu.active ul {
-        display: flex;
-    }
-
-    .navmenu .dropdown-menu {
-        display: none;
-        flex-direction: column;
-    }
-
-    .navmenu .dropdown.active .dropdown-menu {
-        display: flex;
-    }
-}
-
+  
 
   .navmenu .dropdown ul li {
     min-width: 200px;

@@ -1,3 +1,11 @@
+/**
+* Template Name: Medilab
+* Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+* Updated: Jun 29 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
 (function() {
   "use strict";
 
@@ -15,26 +23,16 @@
   window.addEventListener('load', toggleScrolled);
 
   /**
-   * Mobile nav toggle and dropdown functionality
+   * Mobile nav toggle
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-  const navMenu = document.querySelector('#navmenu');
 
   function mobileNavToogle() {
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
-    navMenu.classList.toggle('active');
   }
   mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-
-  document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
-    toggle.addEventListener('click', function(event) {
-      event.preventDefault();
-      const parentDropdown = this.parentElement;
-      parentDropdown.classList.toggle('active');
-    });
-  });
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -44,6 +42,19 @@
       if (document.querySelector('.mobile-nav-active')) {
         mobileNavToogle();
       }
+    });
+
+  });
+
+  /**
+   * Toggle mobile nav dropdowns
+   */
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+    navmenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentNode.classList.toggle('active');
+      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      e.stopImmediatePropagation();
     });
   });
 
